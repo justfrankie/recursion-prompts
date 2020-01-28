@@ -18,15 +18,25 @@ var factorial = function(n) {
 
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
-var sum = function(array) {
-    //base case (end)
-    return sum(array.length[])// recursive case calling itself
-
+var sum = function(array){
+    if (array.length === 0){
+       return 0; //base case (end)
+    } else {
+        return array[0] + sum(array.slice(1)); // recursive case calling itself
+    }
 };
+
+// console.log(sum([1, 2, 3, 4, 5])) //logs 15
 
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
+    if (!Array.isArray(array)){ // check if is array
+        return 0
+    } else {
+    // base case
+     return array[0] + arraySum(array); // recursive case
+    }
 };
 
 // 4. Check if a number is even.
